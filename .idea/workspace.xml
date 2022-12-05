@@ -51,7 +51,7 @@
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day01" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.Day04Kt">
+  <component name="RunManager" selected="Kotlin.Day05Kt">
     <configuration name="Day02Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day02Kt" />
       <module name="day02" />
@@ -73,8 +73,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Day05Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day05Kt" />
+      <module name="day05" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.Day05Kt" />
         <item itemvalue="Kotlin.Day04Kt" />
         <item itemvalue="Kotlin.Day03Kt" />
         <item itemvalue="Kotlin.Day02Kt" />
