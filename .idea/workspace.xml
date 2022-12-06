@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c5b251b9-ebb1-449f-8b74-0ad0ecbe33a6" name="Changes" comment="Day 3 solution for aoc2022">
-      <change afterPath="$PROJECT_DIR$/day04/day04.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day04/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day04/src/Day04.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day04/test1.txt" afterDir="false" />
+    <list default="true" id="c5b251b9-ebb1-449f-8b74-0ad0ecbe33a6" name="Changes" comment="Day 5 solution for aoc2022">
+      <change afterPath="$PROJECT_DIR$/day06/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day06/src/Day06.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day06/test1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -46,12 +45,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day06" />
+      <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day05" />
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day03" />
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day02" />
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day01" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.Day05Kt">
+  <component name="RunManager" selected="Kotlin.Day06Kt">
     <configuration name="Day02Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day02Kt" />
       <module name="day02" />
@@ -80,8 +81,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Day06Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day06Kt" />
+      <module name="day06" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.Day06Kt" />
         <item itemvalue="Kotlin.Day05Kt" />
         <item itemvalue="Kotlin.Day04Kt" />
         <item itemvalue="Kotlin.Day03Kt" />
@@ -119,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670067190833</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Day 5 solution for aoc2022">
+      <created>1670283012327</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670283012327</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,7 +153,8 @@
     <MESSAGE value="Day 1 solution for aoc2022" />
     <MESSAGE value="Day 2 solution for aoc2022" />
     <MESSAGE value="Day 3 solution for aoc2022" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day 3 solution for aoc2022" />
+    <MESSAGE value="Day 5 solution for aoc2022" />
+    <option name="LAST_COMMIT_MESSAGE" value="Day 5 solution for aoc2022" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
