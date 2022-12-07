@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c5b251b9-ebb1-449f-8b74-0ad0ecbe33a6" name="Changes" comment="Day 5 solution for aoc2022">
-      <change afterPath="$PROJECT_DIR$/day06/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day06/src/Day06.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day06/test1.txt" afterDir="false" />
+    <list default="true" id="c5b251b9-ebb1-449f-8b74-0ad0ecbe33a6" name="Changes" comment="Day 6 solution for aoc2022">
+      <change afterPath="$PROJECT_DIR$/day06/day06.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07/day07.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07/src/Day07.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07/test1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -33,17 +35,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-18&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Simon/IdeaProjects/aoc2021&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.language.Kotlin&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "corretto-18",
+    "last_opened_file_path": "C:/Users/Simon/IdeaProjects/aoc2022/day07",
+    "settings.editor.selected.configurable": "preferences.language.Kotlin"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day07" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day06" />
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day05" />
@@ -52,14 +57,7 @@
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day01" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.Day06Kt">
-    <configuration name="Day02Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day02Kt" />
-      <module name="day02" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Kotlin.Day07Kt">
     <configuration name="Day03Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day03Kt" />
       <module name="day03" />
@@ -88,13 +86,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Day07Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day07Kt" />
+      <module name="day07" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.Day07Kt" />
         <item itemvalue="Kotlin.Day06Kt" />
         <item itemvalue="Kotlin.Day05Kt" />
         <item itemvalue="Kotlin.Day04Kt" />
         <item itemvalue="Kotlin.Day03Kt" />
-        <item itemvalue="Kotlin.Day02Kt" />
       </list>
     </recent_temporary>
   </component>
@@ -135,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670283012327</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Day 6 solution for aoc2022">
+      <created>1670334421680</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670334421680</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -154,7 +166,8 @@
     <MESSAGE value="Day 2 solution for aoc2022" />
     <MESSAGE value="Day 3 solution for aoc2022" />
     <MESSAGE value="Day 5 solution for aoc2022" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day 5 solution for aoc2022" />
+    <MESSAGE value="Day 6 solution for aoc2022" />
+    <option name="LAST_COMMIT_MESSAGE" value="Day 6 solution for aoc2022" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -186,6 +199,11 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Node" memberName="name" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
