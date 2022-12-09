@@ -37,7 +37,8 @@ class Day09(path: String) {
             var dy = h.y - t.y
             if (abs(dx) > 1) {
                 dx /= 2
-            } else if (abs(dy) > 1) {
+            }
+            if (abs(dy) > 1) {
                 dy /= 2
             }
 
@@ -62,9 +63,51 @@ class Day09(path: String) {
         return tailSet.size
     }
 
-    fun part2(): Int {
+    fun print(h: Point2D, t: MutableList<Point2D>, width: Int, height: Int) {
+        for (i in height - 1 downTo 0) {
+            for (j in 0 until width) {
+                val p = Point2D(j, i)
 
-        return 0
+                if (p == h) {
+                    print("H")
+                } else {
+                    val index = t.indexOf(p)
+                    if (index == -1) {
+                        print(".")
+                    } else {
+                        print(index + 1)
+                    }
+                }
+            }
+            println()
+        }
+        println()
+    }
+
+    fun part2(): Int {
+        val size = 9
+
+        val tailSet = mutableSetOf<Point2D>()
+
+        // The next head is the previous tail. Thus we don't need to keep track of the other heads.
+        var h = Point2D(0, 0)
+        val t = mutableListOf<Point2D>()
+
+        for (i in 0 until size) {
+            t.add(Point2D(0, 0))
+        }
+
+        moves.forEach {
+            for (rep in 0 until it.second) {
+                h = moveHead(h, it)
+                t[0] = moveTail(h, t[0])
+                for (i in 1 until size) {
+                    t[i] = moveTail(t[i - 1], t[i])
+                }
+                tailSet.add(t[size - 1])
+            }
+        }
+        return tailSet.size
     }
 }
 
