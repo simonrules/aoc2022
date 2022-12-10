@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c5b251b9-ebb1-449f-8b74-0ad0ecbe33a6" name="Changes" comment="Day 9 part 2 solution for aoc2022">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day09/day09.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day09/test2.txt" afterDir="false" />
+    <list default="true" id="c5b251b9-ebb1-449f-8b74-0ad0ecbe33a6" name="Changes" comment="Day 9 part 1 solution for aoc2022">
+      <change afterPath="$PROJECT_DIR$/day10/day10.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day10/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day10/src/Day10.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day10/test1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day10/test2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day09/src/Day09.kt" beforeDir="false" afterPath="$PROJECT_DIR$/day09/src/Day09.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,35 +25,38 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2IJOgrFpuRwubC2Xu4kLfWtseSJ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-18&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Simon/IdeaProjects/aoc2022&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.language.Kotlin&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "corretto-18",
+    "last_opened_file_path": "C:/Users/Simon/IdeaProjects/aoc2022",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.language.Kotlin"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day07" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/day09" />
+      <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day10" />
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day09" />
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day08" />
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day06" />
@@ -59,13 +64,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Kotlin.Day09Kt">
-    <configuration name="Day05Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day05Kt" />
-      <module name="day05" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Day06Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day06Kt" />
       <module name="day06" />
@@ -83,6 +81,7 @@
     <configuration name="Day08Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day08Kt" />
       <module name="day08" />
+      <shortenClasspath name="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -94,26 +93,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="day09" />
+    <configuration name="Day10Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day10Kt" />
+      <module name="day10" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="day09" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <list>
+      <item itemvalue="Kotlin.Day09Kt" />
+      <item itemvalue="Kotlin.Day10Kt" />
+      <item itemvalue="Kotlin.Day06Kt" />
+      <item itemvalue="Kotlin.Day07Kt" />
+      <item itemvalue="Kotlin.Day08Kt" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Kotlin.Day09Kt" />
+        <item itemvalue="Kotlin.Day10Kt" />
         <item itemvalue="Kotlin.Day08Kt" />
         <item itemvalue="Kotlin.Day07Kt" />
         <item itemvalue="Kotlin.Day06Kt" />
-        <item itemvalue="Kotlin.Day05Kt" />
       </list>
     </recent_temporary>
   </component>
@@ -175,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670541297710</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Day 9 part 1 solution for aoc2022">
+      <created>1670594517747</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670594517747</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,8 +204,8 @@
     <MESSAGE value="Day 6 solution for aoc2022" />
     <MESSAGE value="Day 7 solution for aoc2022" />
     <MESSAGE value="Day 8 solution for aoc2022" />
-    <MESSAGE value="Day 9 part 2 solution for aoc2022" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day 9 part 2 solution for aoc2022" />
+    <MESSAGE value="Day 9 part 1 solution for aoc2022" />
+    <option name="LAST_COMMIT_MESSAGE" value="Day 9 part 1 solution for aoc2022" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -240,8 +247,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/day09/src/Day09.kt</url>
-          <line>36</line>
-          <option name="timeStamp" value="32" />
+          <line>62</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/day10/src/Day10.kt</url>
+          <line>44</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
