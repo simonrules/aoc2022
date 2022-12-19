@@ -8,11 +8,10 @@ class Day16(path: String) {
     private var available = mutableListOf<String>()
     private val graph = mutableMapOf<Set<String>, Int>()
     private val starts = mutableSetOf<Pair<String, Int>>()
-    private val paths = mutableListOf<List<String>>()
+    private val paths = mutableListOf<Int>()
     private val pressures = mutableListOf<Int>()
 
     init {
-
         File(path).forEachLine {
             val (a, b, c) = regex.matchEntire(it)!!.destructured
             val tunnel = c.split(", ").toSet()
@@ -74,93 +73,89 @@ class Day16(path: String) {
         return 0
     }
 
-    private fun dfs(valve: String, timeLeft: Int, remaining: Set<String>, path: List<String>): Int {
-        if (timeLeft <= 1) {
-            return 0
+    private fun dfs(pressure: Int, valve: String, timeLeft: Int, remaining: Set<String>, path: Int) {
+        val newPressure = pressure + valves[valve]!!.flow * (timeLeft - 1)
+        val newPath = addToPath(path, valve)
+
+        if (remaining.isEmpty()) {
+            paths.add(newPath)
+            pressures.add(newPressure)
+            return
         }
 
-        var best = 0
         remaining.forEach { dest ->
             val dist = graph[setOf(valve, dest)]!!
-
-            val newPressure = dfs(
-                dest,
-                timeLeft - dist - 1,
-                remaining.minus(dest),
-                path.plus(dest)
-            )
-            if (newPressure > best) {
-                best = newPressure
+            if (dist < timeLeft) {
+                dfs(
+                    newPressure,
+                    dest,
+                    timeLeft - dist - 1,
+                    remaining.minus(dest),
+                    newPath
+                )
+            } else {
+                paths.add(newPath)
+                pressures.add(newPressure)
             }
         }
-
-
-        return valves[valve]!!.flow * (timeLeft - 1) + best
-    }
-
-    private fun dfs2(valveA: String, valveB: String, timeLeftA: Int, timeLeftB: Int, remaining: Set<String>): Int {
-        if (timeLeftA < 1 && timeLeftB < 1) {
-            return 0
-        }
-
-        var best = 0
-        remaining.forEach { a ->
-            remaining.forEach { b ->
-                if (a != b) {
-                    val distA = graph[setOf(valveA, a)]!!
-                    val distB = graph[setOf(valveB, b)]!!
-
-                    val newPressure = dfs2(
-                            a,
-                            b,
-                            timeLeftA - distA - 1,
-                            timeLeftB - distB - 1,
-                            remaining.minus(a).minus(b)
-                        )
-                    if (newPressure > best) {
-                        best = newPressure
-                    }
-                }
-            }
-        }
-
-        return valves[valveA]!!.flow * (timeLeftA - 1) + valves[valveB]!!.flow * (timeLeftB - 1) + best
     }
 
     fun part1(): Int {
         val timeLeft = 30
-        var best = 0
         starts.forEach {
-            val pressure = dfs(
+            dfs(
+                0,
                 it.first,
                 timeLeft - it.second,
                 available.toSet().minus(it.first),
-                listOf(it.first)
+                0
             )
-            if (pressure > best) {
-                best = pressure
-            }
         }
 
-        return best
+        val sorted = pressures.sortedDescending()
+
+        return sorted[0]
+    }
+
+    private fun addToPath(path: Int, valve: String): Int {
+        val bit = available.indexOf(valve)
+        return path or (1 shl bit)
     }
 
     fun part2(): Int {
         val timeLeft = 26
+        starts.forEach {
+            dfs(
+                0,
+                it.first,
+                timeLeft - it.second,
+                available.toSet().minus(it.first),
+                0
+            )
+        }
+
+        // reduce the candidate space. 1100 is arbitrary.
+        val newPressures = mutableListOf<Int>()
+        val newPaths = mutableListOf<Int>()
+        pressures.forEachIndexed { index, pressure ->
+            if (pressure >= 1100) {
+                newPressures.add(pressure)
+                newPaths.add(paths[index])
+            }
+        }
 
         var best = 0
-        starts.forEach { a ->
-            starts.forEach { b ->
-                if (a != b) {
-                    val pressure = dfs2(
-                        a.first,
-                        b.first,
-                        timeLeft - a.second,
-                        timeLeft - b.second,
-                        available.toSet().minus(a.first).minus(b.first)
-                    )
-                    if (pressure > best) {
-                        best = pressure
+        for (a in 0 until newPressures.size) {
+            for (b in a + 1 until newPressures.size) {
+                val totalPressure = newPressures[a] + newPressures[b]
+
+                // must be greater than the part 1 result
+                if (totalPressure > 2124) {
+                    if (newPaths[a] and newPaths[b] == 0) {
+                        // no valves overlap
+                        if (totalPressure > best) {
+                            best = totalPressure
+                        }
                     }
                 }
             }
@@ -173,6 +168,5 @@ class Day16(path: String) {
 fun main() {
     val aoc = Day16("day16/input.txt")
     println(aoc.part1())
-    //2769 too low
-    //println(aoc.part2())
+    println(aoc.part2())
 }
