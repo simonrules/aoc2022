@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5b251b9-ebb1-449f-8b74-0ad0ecbe33a6" name="Changes" comment="Day 16 part 2 solution for aoc2022">
-      <change afterPath="$PROJECT_DIR$/day17/day17.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day17/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day17/src/Day17.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day17/test1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day18/day18.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day18/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day18/src/Day18.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day18/test1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime__2_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day20/day20.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day20/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day20/src/Day20.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day20/test1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +26,12 @@
         <option value="Kotlin Class" />
       </list>
     </option>
+  </component>
+  <component name="G3PluginsProjectSettings">
+    <appliedSettings>
+      <entry key="LinkifyInternalShortlinks" value="true" />
+      <entry key="RecognizedNullableAnnotations" value="true" />
+    </appliedSettings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,17 +55,13 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "jdk.selected.JAVA_MODULE": "corretto-18",
-    "last_opened_file_path": "C:/Users/Simon/IdeaProjects/aoc2022",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.language.Kotlin"
+    "last_opened_file_path": "/usr/local/google/home/simonwilson/IdeaProjects/aoc2022/day20",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/day20" />
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day07" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -72,14 +72,7 @@
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day14" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.Day18Kt">
-    <configuration name="Day14Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day14Kt" />
-      <module name="day14" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Kotlin.Day20Kt">
     <configuration name="Day15Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day15Kt" />
       <module name="day15" />
@@ -108,20 +101,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Day20Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day20Kt" />
+      <module name="day20" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="Kotlin.Day20Kt" />
+      <item itemvalue="Kotlin.Day15Kt" />
+      <item itemvalue="Kotlin.Day16Kt" />
       <item itemvalue="Kotlin.Day17Kt" />
       <item itemvalue="Kotlin.Day18Kt" />
-      <item itemvalue="Kotlin.Day16Kt" />
-      <item itemvalue="Kotlin.Day14Kt" />
-      <item itemvalue="Kotlin.Day15Kt" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.Day20Kt" />
         <item itemvalue="Kotlin.Day18Kt" />
         <item itemvalue="Kotlin.Day17Kt" />
         <item itemvalue="Kotlin.Day16Kt" />
         <item itemvalue="Kotlin.Day15Kt" />
-        <item itemvalue="Kotlin.Day14Kt" />
       </list>
     </recent_temporary>
   </component>
