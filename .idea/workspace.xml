@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5b251b9-ebb1-449f-8b74-0ad0ecbe33a6" name="Changes" comment="Day 20 solution for aoc2022">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day21/day21.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day21/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day21/src/Day21.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day21/test1.txt" afterDir="false" />
+    <list default="true" id="c5b251b9-ebb1-449f-8b74-0ad0ecbe33a6" name="Changes" comment="Day 22 progress">
       <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime__2_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime__2_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aoc2022.iml" beforeDir="false" afterPath="$PROJECT_DIR$/aoc2022.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day21/day21.iml" beforeDir="false" afterPath="$PROJECT_DIR$/day21/day21.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +54,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "jdk.selected.JAVA_MODULE": "corretto-18",
-    "last_opened_file_path": "/usr/local/google/home/simonwilson/IdeaProjects/aoc2022/day21",
+    "last_opened_file_path": "C:/Users/Simon/IdeaProjects/aoc2022/day20",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
@@ -69,21 +68,14 @@
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day07" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day22" />
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day18" />
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day17" />
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day16" />
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day15" />
-      <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day14" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.Day21Kt">
-    <configuration name="Day16Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day16Kt" />
-      <module name="day16" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Kotlin.Day20Kt">
     <configuration name="Day17Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day17Kt" />
       <module name="day17" />
@@ -91,9 +83,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Day18Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day18Kt" />
-      <module name="day18" />
+    <configuration name="Day19Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day19Kt" />
+      <module name="day19" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Day20Kt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day20Kt" />
+      <module name="aoc2022" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -105,27 +104,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Day21Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day21Kt" />
-      <module name="day21" />
+    <configuration name="Day22Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day22Kt" />
+      <module name="day22" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="Kotlin.Day20Kt (1)" />
+      <item itemvalue="Kotlin.Day19Kt" />
+      <item itemvalue="Kotlin.Day22Kt" />
       <item itemvalue="Kotlin.Day20Kt" />
-      <item itemvalue="Kotlin.Day21Kt" />
-      <item itemvalue="Kotlin.Day16Kt" />
       <item itemvalue="Kotlin.Day17Kt" />
-      <item itemvalue="Kotlin.Day18Kt" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.Day21Kt" />
         <item itemvalue="Kotlin.Day20Kt" />
-        <item itemvalue="Kotlin.Day18Kt" />
+        <item itemvalue="Kotlin.Day20Kt (1)" />
         <item itemvalue="Kotlin.Day17Kt" />
-        <item itemvalue="Kotlin.Day16Kt" />
+        <item itemvalue="Kotlin.Day19Kt" />
+        <item itemvalue="Kotlin.Day22Kt" />
       </list>
     </recent_temporary>
   </component>
@@ -257,7 +256,28 @@
       <option name="project" value="LOCAL" />
       <updated>1671650400169</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Day 17 progress">
+      <created>1672153456880</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1672153456880</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Day 19 progress">
+      <created>1672153500143</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1672153500143</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Day 22 progress">
+      <created>1672153620592</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1672153620592</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -289,7 +309,10 @@
     <MESSAGE value="Day 16 part 1 solution for aoc2022" />
     <MESSAGE value="Day 16 part 2 solution for aoc2022" />
     <MESSAGE value="Day 20 solution for aoc2022" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day 20 solution for aoc2022" />
+    <MESSAGE value="Day 17 progress" />
+    <MESSAGE value="Day 19 progress" />
+    <MESSAGE value="Day 22 progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="Day 22 progress" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -365,15 +388,26 @@
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/day22/src/Day22.kt</url>
+          <line>18</line>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/day17/src/Day17.kt</url>
-          <line>55</line>
-          <option name="timeStamp" value="104" />
+          <line>51</line>
+          <option name="timeStamp" value="128" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/day17/src/Day17.kt</url>
+          <line>123</line>
+          <option name="timeStamp" value="129" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Node" memberName="name" />
+        <PinnedItemInfo parentTag="Day20$Node" memberName="value" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
