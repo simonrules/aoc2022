@@ -1,9 +1,10 @@
 import java.io.File
 import kotlin.math.min
+import kotlin.math.max
 
 class Day17(path: String) {
     private val chamberW = 7
-    private val chamberH = 200
+    private val chamberH = 4000
     private val jet: String
 
     private val pixels = arrayOf(
@@ -39,34 +40,58 @@ class Day17(path: String) {
 
         fun overlap(other: Rock): Boolean {
             return x.coerceAtLeast(other.x) <= (x + w).coerceAtMost(other.x + other.w) &&
-                    y.coerceAtLeast(other.y) <= (y + w).coerceAtMost(other.y + other.w)
+                    y.coerceAtLeast(other.y) <= (y + h).coerceAtMost(other.y + other.h)
         }
 
         fun collision(other: Rock): Boolean {
-            // are they close enough?
-            // this == rock on top
-            if (y >= other.y + other.h) {
+            if (!overlap(other)) {
                 return false
             }
 
-            val topRow = other.h - 1
-            val offset = x - other.x
+            val offsetX = x - other.x
+            val offsetY = y - other.y
+            val overlapX = min(x + w, other.x + other.w) - max(x, other.x)
+            val overlapY = min(y + h, other.y + other.h) - max(y, other.y)
 
-            // check for collision: bottom row of this against top row of other
-            if (other.x >= x && other.x < (x + w)) {
-                // this is left of other
-                val overlap = (x + w) - other.x
-                for (j in 0 until overlap) {
-                    if (getAt(j - offset, 0) && other.getAt(j, topRow)) {
-                        return true
+            // check for collision: all pixels within overlap area
+            if (other.x >= x) {
+                if (other.y >= y) {
+                    // other is above (or level)
+                    for (i in 0 until overlapY) {
+                        for (j in 0 until overlapX) {
+                            if (getAt(j - offsetX, i - offsetY) && other.getAt(j, i)) {
+                                return true
+                            }
+                        }
+                    }
+                } else {
+                    // other is below
+                    for (i in 0 until overlapY) {
+                        for (j in 0 until overlapX) {
+                            if (getAt(j - offsetX, i) && other.getAt(j, i + offsetY)) {
+                                return true
+                            }
+                        }
                     }
                 }
-            } else if (x >= other.x && x < (other.x + other.w)) {
-                // this is right of other
-                val overlap = (other.x + other.w) - x
-                for (j in 0 until overlap) {
-                    if (getAt(j, 0) && other.getAt(j + offset, topRow)) {
-                        return true
+            } else {
+                if (other.y >= y) {
+                    // other is above (or level)
+                    for (i in 0 until overlapY) {
+                        for (j in 0 until overlapX) {
+                            if (getAt(j, i - offsetY) && other.getAt(j + offsetX, i)) {
+                                return true
+                            }
+                        }
+                    }
+                } else {
+                    // other is below
+                    for (i in 0 until overlapY) {
+                        for (j in 0 until overlapX) {
+                            if (getAt(j, i) && other.getAt(j + offsetX, i + offsetY)) {
+                                return true
+                            }
+                        }
                     }
                 }
             }
@@ -81,25 +106,25 @@ class Day17(path: String) {
             return true
         }
 
-        // check for collisions with last 7 rocks
-        return rocks.takeLast(7).any { rock.collision(it) }
+        // check for collisions
+        return rocks.takeLast(20).reversed().any { rock.collision(it) }
     }
 
     private fun getTopOfPile(): Int {
-        // check the last 7 rocks to see which is the highest
+        // check the last rocks to see which is the highest
         var highest = 0
-        val lastSeven = rocks.takeLast(7)
+        val lastSeven = rocks.takeLast(20)
         lastSeven.forEach { if (it.y + it.h > highest) highest = it.y + it.h }
         return highest
     }
 
-    private fun addToChamber(rock: Rock) {
+    private fun addToChamber(rock: Rock, c: Char) {
         for (y in 0 until rock.h) {
             for (x in 0 until rock.w) {
                 val cX = x + rock.x
                 val cY = y + rock.y
                 if (rock.getAt(x, y)) {
-                    chamber[cY * chamberW + cX] = '#'
+                    chamber[cY * chamberW + cX] = c
                 }
             }
         }
@@ -120,7 +145,7 @@ class Day17(path: String) {
         var startY = 3 // start 3 pixels from the floor
 
         var j = 0
-        for (r in 0 until 10) { // 2022
+        for (r in 0 until 2022) {
             var rock = Rock(fromLeft, startY, widths[r % num], heights[r % num], pixels[r % num])
 
             while (true) {
@@ -135,28 +160,33 @@ class Day17(path: String) {
                 }
 
                 var newRock = Rock(newX, rock.y, rock.w, rock.h, rock.data)
-                if (hasCollided(newRock)) break
-                rock = newRock
+
+                if (hasCollided(newRock)) {
+                } else {
+                    rock = newRock
+                }
 
                 // move rock down
-                val newY = newRock.y - 1
-                newRock = Rock(newRock.x, newY, newRock.w, newRock.h, newRock.data)
-                if (hasCollided(newRock)) break
+                val newY = rock.y - 1
+                newRock = Rock(rock.x, newY, rock.w, rock.h, rock.data)
+                if (hasCollided(newRock)) {
+                    break
+                }
                 rock = newRock
             }
 
             // add rock's final position
             rocks.add(rock)
-            addToChamber(rock)
+            //addToChamber(rock, '#')
             startY = getTopOfPile() + 3
-            printChamber(startY)
         }
 
-        return 0
+        //printChamber(startY)
+        return getTopOfPile()
     }
 }
 
 fun main() {
-    val aoc = Day17("day17/test1.txt")
+    val aoc = Day17("day17/input.txt")
     println(aoc.part1())
 }

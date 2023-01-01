@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5b251b9-ebb1-449f-8b74-0ad0ecbe33a6" name="Changes" comment="Day 22 progress">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime__2_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime__2_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aoc2022.iml" beforeDir="false" afterPath="$PROJECT_DIR$/aoc2022.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day21/day21.iml" beforeDir="false" afterPath="$PROJECT_DIR$/day21/day21.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day17/src/Day17.kt" beforeDir="false" afterPath="$PROJECT_DIR$/day17/src/Day17.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day19/src/Day19.kt" beforeDir="false" afterPath="$PROJECT_DIR$/day19/src/Day19.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,20 +45,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "jdk.selected.JAVA_MODULE": "corretto-18",
-    "last_opened_file_path": "C:/Users/Simon/IdeaProjects/aoc2022/day20",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-18&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Simon/IdeaProjects/aoc2022/day20&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/day21" />
@@ -75,7 +73,7 @@
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day15" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.Day20Kt">
+  <component name="RunManager" selected="Kotlin.Day17Kt">
     <configuration name="Day17Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day17Kt" />
       <module name="day17" />
@@ -120,10 +118,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.Day20Kt" />
-        <item itemvalue="Kotlin.Day20Kt (1)" />
         <item itemvalue="Kotlin.Day17Kt" />
         <item itemvalue="Kotlin.Day19Kt" />
+        <item itemvalue="Kotlin.Day20Kt" />
+        <item itemvalue="Kotlin.Day20Kt (1)" />
         <item itemvalue="Kotlin.Day22Kt" />
       </list>
     </recent_temporary>
@@ -393,14 +391,15 @@
           <option name="timeStamp" value="121" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/day17/src/Day17.kt</url>
-          <line>51</line>
-          <option name="timeStamp" value="128" />
+          <url>file://$PROJECT_DIR$/day19/src/Day19.kt</url>
+          <line>115</line>
+          <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
+          <condition expression="r==104" language="kotlin" />
           <url>file://$PROJECT_DIR$/day17/src/Day17.kt</url>
-          <line>123</line>
-          <option name="timeStamp" value="129" />
+          <line>150</line>
+          <option name="timeStamp" value="140" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
