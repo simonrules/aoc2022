@@ -10,14 +10,17 @@ class Day19(path: String) {
         val geoCostObs: Int
     )
 
-    enum class Robot(
-        var collected: Int
-    ) {
-        ORE(0),
-        CLAY(0),
-        OBSIDIAN(0),
-        GEODE(0)
-    }
+    data class State(
+        val minute: Int,
+        val oreRobots: Int,
+        val ore: Int,
+        val clayRobots: Int,
+        val clay: Int,
+        val obsRobots: Int,
+        val obs: Int,
+        val geoRobots: Int,
+        val geo: Int
+    )
 
     private val blueprints = mutableListOf<Blueprint>()
     private val regex = "Blueprint \\d+: Each ore robot costs (\\d+) ore. Each clay robot costs (\\d+) ore. Each obsidian robot costs (\\d+) ore and (\\d+) clay. Each geode robot costs (\\d+) ore and (\\d+) obsidian.".toRegex()
@@ -29,12 +32,127 @@ class Day19(path: String) {
         }
     }
 
+    private fun bfs(root: State, b: Blueprint, maxMinutes: Int): Int {
+        val queue = ArrayDeque<State>()
+        val visited = hashSetOf<State>()
+        val maxOreRobotsNeeded = listOf(b.oreCostOre, b.clayCostOre, b.obsCostOre, b.geoCostOre).max()
+        val maxClayRobotsNeeded = b.obsCostClay
+        val maxObsRobotsNeeded = b.geoCostObs
+        var maxGeo = 0
+        queue.add(root)
+
+        while (queue.isNotEmpty()) {
+            val s = queue.removeFirst()
+
+            if (s in visited) {
+                continue
+            }
+            visited.add(s)
+
+            // Add all possibilities
+            if (s.minute < maxMinutes) {
+                if (s.ore >= b.geoCostOre && s.obs >= b.geoCostObs) {
+                    queue.addLast(
+                        // Make geo robot
+                        s.copy(
+                            minute = s.minute + 1,
+                            ore = s.ore + s.oreRobots - b.geoCostOre,
+                            clay = s.clay + s.clayRobots,
+                            obs = s.obs + s.obsRobots - b.geoCostObs,
+                            geo = s.geo + s.geoRobots,
+                            geoRobots = s.geoRobots + 1
+                        )
+                    )
+                    continue // don't investigate other options
+                }
+
+                queue.addLast(
+                    // Just accumulate minerals
+                    s.copy(
+                        minute = s.minute + 1,
+                        ore = s.ore + s.oreRobots,
+                        clay = s.clay + s.clayRobots,
+                        obs = s.obs + s.obsRobots,
+                        geo = s.geo + s.geoRobots
+                    )
+                )
+                if (s.ore >= b.oreCostOre && s.oreRobots < maxOreRobotsNeeded) {
+                    queue.addLast(
+                        // Make ore robot
+                        s.copy(
+                            minute = s.minute + 1,
+                            ore = s.ore + s.oreRobots - b.oreCostOre,
+                            clay = s.clay + s.clayRobots,
+                            obs = s.obs + s.obsRobots,
+                            geo = s.geo + s.geoRobots,
+                            oreRobots = s.oreRobots + 1
+                        )
+                    )
+                }
+
+                if (s.ore >= b.clayCostOre && s.clayRobots < maxClayRobotsNeeded) {
+                    queue.addLast(
+                        // Make clay robot
+                        s.copy(
+                            minute = s.minute + 1,
+                            ore = s.ore + s.oreRobots - b.clayCostOre,
+                            clay = s.clay + s.clayRobots,
+                            obs = s.obs + s.obsRobots,
+                            geo = s.geo + s.geoRobots,
+                            clayRobots = s.clayRobots + 1
+                        )
+                    )
+                }
+
+                if (s.ore >= b.obsCostOre && s.clay >= b.obsCostClay && s.obsRobots < maxObsRobotsNeeded) {
+                    queue.addLast(
+                        // Make obs robot
+                        s.copy(
+                            minute = s.minute + 1,
+                            ore = s.ore + s.oreRobots - b.obsCostOre,
+                            clay = s.clay + s.clayRobots - b.obsCostClay,
+                            obs = s.obs + s.obsRobots,
+                            geo = s.geo + s.geoRobots,
+                            obsRobots = s.obsRobots + 1
+                        )
+                    )
+                }
+
+
+            } else {
+                // Out of time
+                if (s.geo > maxGeo) {
+                    maxGeo = s.geo
+                }
+            }
+        }
+
+        return maxGeo
+    }
+
+    fun dfs(root: State) {
+
+    }
+
     fun part1(): Int {
-        return 0
+        val state = State(0, 1, 0, 0, 0, 0, 0, 0, 0)
+
+        var quality = 0
+
+        blueprints.forEachIndexed { index, blueprint -> quality += (index + 1) * bfs(state, blueprint, 24) }
+
+        return quality
+    }
+
+    fun part2(): Int {
+        val state = State(0, 1, 0, 0, 0, 0, 0, 0, 0)
+
+        return bfs(state, blueprints[0], 32)
     }
 }
 
 fun main() {
     val aoc = Day19("day19/test1.txt")
     println(aoc.part1())
+    //println(aoc.part2())
 }
