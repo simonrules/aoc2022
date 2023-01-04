@@ -49,6 +49,11 @@ class Day19(path: String) {
             }
             visited.add(s)
 
+            if (s.minute > 27 && s.geoRobots == 0) {
+                // got this far with no geo robots, so go no further. 27 is arbitrary!
+                continue
+            }
+
             // Add all possibilities
             if (s.minute < maxMinutes) {
                 if (s.ore >= b.geoCostOre && s.obs >= b.geoCostObs) {
@@ -76,6 +81,7 @@ class Day19(path: String) {
                         geo = s.geo + s.geoRobots
                     )
                 )
+
                 if (s.ore >= b.oreCostOre && s.oreRobots < maxOreRobotsNeeded) {
                     queue.addLast(
                         // Make ore robot
@@ -130,10 +136,6 @@ class Day19(path: String) {
         return maxGeo
     }
 
-    fun dfs(root: State) {
-
-    }
-
     fun part1(): Int {
         val state = State(0, 1, 0, 0, 0, 0, 0, 0, 0)
 
@@ -147,12 +149,17 @@ class Day19(path: String) {
     fun part2(): Int {
         val state = State(0, 1, 0, 0, 0, 0, 0, 0, 0)
 
-        return bfs(state, blueprints[0], 32)
+        var result = 1
+        for (i in 0 until 3) {
+            result *= bfs(state, blueprints[i], 32)
+        }
+
+        return result
     }
 }
 
 fun main() {
-    val aoc = Day19("day19/test1.txt")
+    val aoc = Day19("day19/input.txt")
     println(aoc.part1())
-    //println(aoc.part2())
+    println(aoc.part2())
 }
