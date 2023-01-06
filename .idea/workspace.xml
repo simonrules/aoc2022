@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5b251b9-ebb1-449f-8b74-0ad0ecbe33a6" name="Changes" comment="Day 19 part 2 solution">
+    <list default="true" id="c5b251b9-ebb1-449f-8b74-0ad0ecbe33a6" name="Changes" comment="Day 22 part 1 solution, part 2 in progress">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day22/src/Day22.kt" beforeDir="false" afterPath="$PROJECT_DIR$/day22/src/Day22.kt" afterDir="false" />
     </list>
@@ -44,20 +44,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-18&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Simon/IdeaProjects/aoc2022/day20&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "corretto-18",
+    "last_opened_file_path": "C:/Users/Simon/IdeaProjects/aoc2022/day20",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "inlay.hints"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/day21" />
@@ -295,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672859918131</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Day 22 part 1 solution, part 2 in progress">
+      <created>1673017278944</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1673017278944</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -333,7 +340,8 @@
     <MESSAGE value="Day 17 part 1 solution" />
     <MESSAGE value="Day 19 part 1 solution" />
     <MESSAGE value="Day 19 part 2 solution" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day 19 part 2 solution" />
+    <MESSAGE value="Day 22 part 1 solution, part 2 in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="Day 22 part 1 solution, part 2 in progress" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -416,8 +424,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/day22/src/Day22.kt</url>
-          <line>200</line>
-          <option name="timeStamp" value="166" />
+          <line>235</line>
+          <option name="timeStamp" value="174" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

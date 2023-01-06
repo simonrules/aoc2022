@@ -57,7 +57,6 @@ class Day22(input: String) {
         val mapBlock = file[0]
         path = splitPath(file[1])
         map = mapBlock.split("\n")
-        //mapStrings.forEach { map.add(StringBuilder(it)) }
         height = map.size
         start = Point(getStartX(0), 0)
     }
@@ -101,24 +100,12 @@ class Day22(input: String) {
         return if (inBounds(p)) map[p.y][p.x] else ' '
     }
 
-    /*private fun setMapAt(p: Point, c: Char) {
-        map[p.y][p.x] = c
-    }*/
-
     private fun inBounds(p: Point): Boolean {
         if (p.y < 0 || p.y >= height || p.x < 0 || p.x >= map[p.y].length) {
             return false
         }
 
         return p.x >= getStartX(p.y) && p.x <= getEndX(p.y)
-    }
-
-    private fun printMap() {
-        map.forEachIndexed { y, s ->
-            val start = getStartX(y)
-            val end = getEndX(y)
-            println("$s $start - $end")
-        }
     }
 
     private fun handleWrap(position: Position): Position {
@@ -139,49 +126,95 @@ class Day22(input: String) {
         return Position(nextPoint, position.direction)
     }
 
-    private fun handleWrapCube(curPosition: Position): Position {
-        val faceSize = height / 3
+    private fun faceToPoint(facePos: Point, faceSize: Int, faceXId: Int, faceYId: Int): Point {
+        return Point(facePos.x + faceXId * faceSize, facePos.y + faceYId * faceSize)
+    }
 
-        val facePos = Point(curPosition.point.x % faceSize, curPosition.point.y % faceSize)
+    private fun handleWrapCube(curPosition: Position): Position {
+        val faceSize = height / 4
+
+        // Position within a single cube face
+        val facePoint = Point(curPosition.point.x % faceSize, curPosition.point.y % faceSize)
+
+        // IDs uniquely identify a cube face
         val faceXId = curPosition.point.x / faceSize
         val faceYId = curPosition.point.y / faceSize
 
-        if (faceXId == 2 && faceYId == 1) {
-            // must have fallen off right
+        if (faceXId == 1 && faceYId == 0) {
+            if (curPosition.direction == Direction.FACING_UP) {//
+                // flip axes
+                val newFacePoint = Point(0, facePoint.x)
 
-            // flip axes
-            var newFacePos = Point(faceSize - facePos.y - 1, 0)
-            val newFaceXId = 3
-            val newFaceYId = 2
-            val newDirection = Direction.FACING_DOWN
-            newFacePos = Point(newFacePos.x + newFaceXId * faceSize,
-                newFacePos.y + newFaceYId * faceSize)
+                return Position(faceToPoint(newFacePoint, faceSize, 0, 3), Direction.FACING_RIGHT)
+            } else if (curPosition.direction == Direction.FACING_LEFT) {//
+                val newFacePoint = Point(0, faceSize - facePoint.y - 1)
 
-            return Position(newFacePos, newDirection)
-        } else if (faceXId == 2 && faceYId == 2) {
-            if (curPosition.direction == Direction.FACING_DOWN) {
-                var newFacePos = Point(faceSize - facePos.x - 1, facePos.y)
-                val newFaceXId = 0
-                val newFaceYId = 1
-                val newDirection = Direction.FACING_UP
-                newFacePos = Point(newFacePos.x + newFaceXId * faceSize,
-                    newFacePos.y + newFaceYId * faceSize)
+                return Position(faceToPoint(newFacePoint, faceSize, 0, 2), Direction.FACING_RIGHT)
+            }
+        } else if (faceXId == 0 && faceYId == 3) {
+            if (curPosition.direction == Direction.FACING_LEFT) {//
+                // flip axes
+                val newFacePoint = Point(facePoint.y, 0)
 
-                return Position(newFacePos, newDirection)
-            } else {
-                // must be facing left
+                return Position(faceToPoint(newFacePoint, faceSize, 1, 0), Direction.FACING_DOWN)
+            } else if (curPosition.direction == Direction.FACING_RIGHT) {//
+                // flip axes
+                val newFacePoint = Point(facePoint.y, facePoint.x)
+
+                return Position(faceToPoint(newFacePoint, faceSize, 1, 2), Direction.FACING_UP)
+            } else if (curPosition.direction == Direction.FACING_DOWN) {//
+                val newFacePoint = Point(facePoint.x, 0)
+
+                return Position(faceToPoint(newFacePoint, faceSize, 2, 0), Direction.FACING_DOWN)
+            }
+        } else if (faceXId == 0 && faceYId == 2) {
+            if (curPosition.direction == Direction.FACING_LEFT) {//
+                val newFacePoint = Point(0, faceSize - facePoint.y - 1)
+
+                return Position(faceToPoint(newFacePoint, faceSize, 1, 0), Direction.FACING_RIGHT)
+            } else if (curPosition.direction == Direction.FACING_UP) {//
+                // swap axes
+                val newFacePoint = Point(0, facePoint.x)
+
+                return Position(faceToPoint(newFacePoint, faceSize, 1, 1), Direction.FACING_RIGHT)
+            }
+        } else if (faceXId == 1 && faceYId == 2) {
+            if (curPosition.direction == Direction.FACING_DOWN) {//
+                // swap axes
+                val newFacePoint = Point(facePoint.y, facePoint.x)
+
+                return Position(faceToPoint(newFacePoint, faceSize, 0, 3), Direction.FACING_LEFT)
+            } else if (curPosition.direction == Direction.FACING_RIGHT) {//
+                val newFacePoint = Point(facePoint.x, faceSize - facePoint.y - 1)
+
+                return Position(faceToPoint(newFacePoint, faceSize, 2, 0), Direction.FACING_LEFT)
+            }
+        } else if (faceXId == 2 && faceYId == 0) {
+            if (curPosition.direction == Direction.FACING_DOWN) {//
+                // swap axes
+                val newFacePoint = Point(facePoint.y, facePoint.x)
+
+                return Position(faceToPoint(newFacePoint, faceSize, 1, 1), Direction.FACING_LEFT)
+            } else if (curPosition.direction == Direction.FACING_UP) {//
+                val newFacePoint = Point(facePoint.x, faceSize - 1)
+
+                return Position(faceToPoint(newFacePoint, faceSize, 0, 3), Direction.FACING_UP)
+            } else if (curPosition.direction == Direction.FACING_RIGHT) {//
+                val newFacePoint = Point(facePoint.x, faceSize - facePoint.y - 1)
+
+                return Position(faceToPoint(newFacePoint, faceSize, 1, 2), Direction.FACING_LEFT)
             }
         } else if (faceXId == 1 && faceYId == 1) {
-            if (curPosition.direction == Direction.FACING_UP) {
+            if (curPosition.direction == Direction.FACING_LEFT) {//
                 // swap axes
-                var newFacePos = Point(0, facePos.x)
-                val newFaceXId = 2
-                val newFaceYId = 0
-                val newDirection = Direction.FACING_RIGHT
-                newFacePos = Point(newFacePos.x + newFaceXId * faceSize,
-                    newFacePos.y + newFaceYId * faceSize)
+                val newFacePoint = Point(facePoint.y, 0)
 
-                return Position(newFacePos, newDirection)
+                return Position(faceToPoint(newFacePoint, faceSize, 0, 2), Direction.FACING_DOWN)
+            } else if (curPosition.direction == Direction.FACING_RIGHT) {//
+                // swap axes
+                val newFacePoint = Point(facePoint.y, facePoint.x)
+
+                return Position(faceToPoint(newFacePoint, faceSize, 2, 0), Direction.FACING_UP)
             }
         }
 
@@ -209,12 +242,6 @@ class Day22(input: String) {
                 break
             }
 
-            /*setMapAt(curPosition.point, when (curPosition.direction) {
-                Direction.FACING_UP -> '^'
-                Direction.FACING_DOWN -> 'v'
-                Direction.FACING_RIGHT -> '>'
-                Direction.FACING_LEFT -> '<'
-            })*/
             curPosition = nextPosition
         }
 
@@ -225,10 +252,10 @@ class Day22(input: String) {
         return 4 * (position.point.x + 1) +
                 1000 * (position.point.y + 1) +
                 when (position.direction) {
-                    Direction.FACING_UP -> 3
-                    Direction.FACING_DOWN -> 1
                     Direction.FACING_RIGHT -> 0
+                    Direction.FACING_DOWN -> 1
                     Direction.FACING_LEFT -> 2
+                    Direction.FACING_UP -> 3
                 }
     }
 
@@ -256,7 +283,7 @@ class Day22(input: String) {
 }
 
 fun main() {
-    val aoc = Day22("day22/test1.txt")
+    val aoc = Day22("day22/input.txt")
     println(aoc.part1())
     println(aoc.part2())
 }
