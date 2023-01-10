@@ -1,16 +1,15 @@
 import java.io.File
 
-/*open class Monkey(val name: String)
-class Number(name: String, value: Int) : Monkey(name)
-class Operation(name: String, lhs: String, rhs: String)*/
-
 data class Operation(val left: String, val operator: Char, val right: String)
 
 class Day21(path: String) {
-    private val values = mutableMapOf<String, Long>()
-    private val operations = mutableMapOf<String, Operation>()
+    private val initialValues: Map<String, Long>
+    private val initialOperations: Map<String, Operation>
 
     init {
+        val values = mutableMapOf<String, Long>()
+        val operations = mutableMapOf<String, Operation>()
+
         File(path).forEachLine {
             val parts = it.split(": ")
 
@@ -23,10 +22,20 @@ class Day21(path: String) {
                 values[monkey] = value
             }
         }
+
+        initialValues = values.toMap()
+        initialOperations = operations.toMap()
     }
 
-    fun part1(): Long {
-        while ("root" !in values) {
+    private fun sumTree(root: String, humn: Long? = null): Long {
+        val values = initialValues.toMutableMap()
+        val operations = initialOperations.toMutableMap()
+
+        if (humn != null) {
+            values["humn"] = humn
+        }
+
+        while (root !in values) {
             val results = mutableListOf<Pair<String, Long>>()
             operations.forEach { (monkey, operation) ->
                 val left = values[operation.left]
@@ -48,13 +57,59 @@ class Day21(path: String) {
             }
         }
 
-        return values["root"]!!
+        return values[root]!!
+    }
+
+    private fun findParent(child: String): String? {
+        initialOperations.forEach {
+            if (it.value.left == child || it.value.right == child) {
+                return it.key
+            }
+        }
+
+        return null
+    }
+
+    private fun isChildOf(root: String, child: String): Boolean {
+        var current: String? = child
+        do {
+            current = findParent(current!!)
+        } while (current != null && current != root)
+
+        return current == root
+    }
+
+    fun part1(): Long {
+        return sumTree("root")
     }
 
     fun part2(): Long {
+        // Determine which side of root has "humn"
+        val left = initialOperations["root"]!!.left
+        val right = initialOperations["root"]!!.right
+        val humnTree = if (isChildOf(right, "humn")) right else left
+        val otherTree = if (isChildOf(right, "humn")) left else right
 
+        // Make other side equal to needed by changing value of humn
+        val needed = sumTree(otherTree)
 
-        return 0L
+        // Make two guesses to determine the direction to try
+        val guess1 = 0L
+        val result1 = sumTree(humnTree, guess1)
+        val guess2 = 1000L
+        val result2 = sumTree(humnTree, guess2)
+
+        val direction = if (result2 > result1) -1 else 1
+        var error = result2 - needed
+
+        var guess = guess2
+        while (error != 0L) {
+            guess += direction * error / 10L
+            val result = sumTree(humnTree, guess)
+            error = result - needed
+        }
+
+        return guess
     }
 }
 

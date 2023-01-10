@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5b251b9-ebb1-449f-8b74-0ad0ecbe33a6" name="Changes" comment="Day 24 solution">
-      <change afterPath="$PROJECT_DIR$/day25/day25.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day25/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day25/src/Day25.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day25/test1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime__2_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime__2_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="c5b251b9-ebb1-449f-8b74-0ad0ecbe33a6" name="Changes" comment="Day 21 part 2 solution">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day21/src/Day21.kt" beforeDir="false" afterPath="$PROJECT_DIR$/day21/src/Day21.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +72,7 @@
       <recent name="C:\Users\Simon\IdeaProjects\aoc2022\day18" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.Day25Kt">
+  <component name="RunManager" selected="Kotlin.Day21Kt">
     <configuration name="Day21Kt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day21Kt" />
       <module name="day21" />
@@ -122,10 +117,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.Day21Kt" />
         <item itemvalue="Kotlin.Day25Kt" />
         <item itemvalue="Kotlin.Day24Kt" />
         <item itemvalue="Kotlin.Day23Kt" />
-        <item itemvalue="Kotlin.Day21Kt" />
         <item itemvalue="Kotlin.Day22Kt" />
       </list>
     </recent_temporary>
@@ -328,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673298933804</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Day 25 part 1 solution">
+      <created>1673318007007</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1673318007007</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -343,8 +345,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Day 3 solution for aoc2022" />
-    <MESSAGE value="Day 5 solution for aoc2022" />
     <MESSAGE value="Day 6 solution for aoc2022" />
     <MESSAGE value="Day 7 solution for aoc2022" />
     <MESSAGE value="Day 8 solution for aoc2022" />
@@ -368,7 +368,9 @@
     <MESSAGE value="Day 22 part 2 solution" />
     <MESSAGE value="Day 23 solution (but needs some cleanup)" />
     <MESSAGE value="Day 24 solution" />
-    <option name="LAST_COMMIT_MESSAGE" value="Day 24 solution" />
+    <MESSAGE value="Day 25 part 1 solution" />
+    <MESSAGE value="Day 21 part 2 solution" />
+    <option name="LAST_COMMIT_MESSAGE" value="Day 21 part 2 solution" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -458,11 +460,6 @@
           <url>file://$PROJECT_DIR$/day24/src/Day24.kt</url>
           <line>112</line>
           <option name="timeStamp" value="193" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/day25/src/Day25.kt</url>
-          <line>31</line>
-          <option name="timeStamp" value="197" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
