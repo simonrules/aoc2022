@@ -4,8 +4,8 @@ import kotlin.math.max
 
 class Day17(path: String) {
     private val chamberW = 7
-    private val chamberH = 4000
     private val jet: String
+    private val takeLast = 20
 
     private val pixels = arrayOf(
         "####",
@@ -27,13 +27,11 @@ class Day17(path: String) {
     private val rocks = mutableListOf<Rock>()
     private val num = 5
 
-    private val chamber = Array(chamberW * chamberH) { '.' }
-
     init {
         jet = File(path).readLines()[0]
     }
 
-    data class Rock(val x: Int, val y: Int, val w: Int, val h: Int, val data: String) {
+    data class Rock(val x: Int, val y: Int, val w: Int, val h: Int, val data: String, val id: Int) {
         fun getAt(x: Int, y: Int): Boolean {
             return data[y * (w + 1) + x] == '#'
         }
@@ -107,37 +105,15 @@ class Day17(path: String) {
         }
 
         // check for collisions
-        return rocks.takeLast(20).reversed().any { rock.collision(it) }
+        return rocks.takeLast(takeLast).reversed().any { rock.collision(it) }
     }
 
     private fun getTopOfPile(): Int {
         // check the last rocks to see which is the highest
         var highest = 0
-        val lastSeven = rocks.takeLast(20)
-        lastSeven.forEach { if (it.y + it.h > highest) highest = it.y + it.h }
+        val lastRocks = rocks.takeLast(takeLast)
+        lastRocks.forEach { if (it.y + it.h > highest) highest = it.y + it.h }
         return highest
-    }
-
-    private fun addToChamber(rock: Rock, c: Char) {
-        for (y in 0 until rock.h) {
-            for (x in 0 until rock.w) {
-                val cX = x + rock.x
-                val cY = y + rock.y
-                if (rock.getAt(x, y)) {
-                    chamber[cY * chamberW + cX] = c
-                }
-            }
-        }
-    }
-
-    private fun printChamber(startY: Int) {
-        for (y in startY downTo 0) {
-            for (x in 0 until chamberW) {
-                print(chamber[y * chamberW + x])
-            }
-            println()
-        }
-        println()
     }
 
     fun part1(): Int {
@@ -146,7 +122,7 @@ class Day17(path: String) {
 
         var j = 0
         for (r in 0 until 2022) {
-            var rock = Rock(fromLeft, startY, widths[r % num], heights[r % num], pixels[r % num])
+            var rock = Rock(fromLeft, startY, widths[r % num], heights[r % num], pixels[r % num], r % num)
 
             while (true) {
                 // move rock l/r
@@ -159,16 +135,15 @@ class Day17(path: String) {
                     newX = chamberW - rock.w
                 }
 
-                var newRock = Rock(newX, rock.y, rock.w, rock.h, rock.data)
+                var newRock = Rock(newX, rock.y, rock.w, rock.h, rock.data, rock.id)
 
-                if (hasCollided(newRock)) {
-                } else {
+                if (!hasCollided(newRock)) {
                     rock = newRock
                 }
 
                 // move rock down
                 val newY = rock.y - 1
-                newRock = Rock(rock.x, newY, rock.w, rock.h, rock.data)
+                newRock = Rock(rock.x, newY, rock.w, rock.h, rock.data, rock.id)
                 if (hasCollided(newRock)) {
                     break
                 }
@@ -177,16 +152,78 @@ class Day17(path: String) {
 
             // add rock's final position
             rocks.add(rock)
-            //addToChamber(rock, '#')
             startY = getTopOfPile() + 3
         }
 
-        //printChamber(startY)
         return getTopOfPile()
+    }
+
+    data class RockJetState(val rockId: Int, val jet: Int)
+    data class RockHeightState(val numRocks: Int, val height: Int)
+
+    fun part2(): Long {
+        val rocksNeeded = 1000000000000L
+        val fromLeft = 2
+        var startY = 3 // start 3 pixels from the floor
+        val seen = mutableMapOf<RockJetState, RockHeightState>()
+
+        var j = 0
+        for (r in 0 until 50000) {
+            var rock = Rock(fromLeft, startY, widths[r % num], heights[r % num], pixels[r % num], r % num)
+
+            val rockJetState = RockJetState(r % num, j % jet.length)
+            val rockHeightState = seen[rockJetState]
+            if (rockHeightState == null) {
+                seen[rockJetState] = RockHeightState(r, startY - 3)
+            } else {
+                val rockPeriod = r - rockHeightState.numRocks
+
+                if (r.toLong() % rockPeriod == rocksNeeded % rockPeriod) {
+                    val cycleHeight = (startY - 3) - rockHeightState.height
+                    val remainingRocks = rocksNeeded - r
+                    val cyclesRemaining = (remainingRocks / rockPeriod) + 1
+                    return rockHeightState.height + (cycleHeight * cyclesRemaining)
+                }
+            }
+
+            while (true) {
+                // move rock l/r
+                var newX = if (jet[j++ % jet.length] == '>') rock.x + 1 else rock.x - 1
+
+                // clamp to left and right edges of chamber
+                if (newX < 0) {
+                    newX = 0
+                } else if (newX + rock.w > chamberW) {
+                    newX = chamberW - rock.w
+                }
+
+                var newRock = Rock(newX, rock.y, rock.w, rock.h, rock.data, rock.id)
+
+                if (!hasCollided(newRock)) {
+                    rock = newRock
+                }
+
+                // move rock down
+                val newY = rock.y - 1
+                newRock = Rock(rock.x, newY, rock.w, rock.h, rock.data, rock.id)
+                if (hasCollided(newRock)) {
+                    break
+                }
+                rock = newRock
+            }
+
+            // add rock's final position
+            rocks.add(rock)
+            startY = getTopOfPile() + 3
+        }
+
+        // oops - should never get here
+        return 0L
     }
 }
 
 fun main() {
     val aoc = Day17("day17/input.txt")
-    println(aoc.part1())
+    //println(aoc.part1())
+    println(aoc.part2())
 }
